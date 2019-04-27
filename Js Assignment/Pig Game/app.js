@@ -42,8 +42,10 @@ function rollDice(){
         document.getElementById("current-" + currentPlayer).innerText = 0;
         document.getElementById("score-"+currentPlayer).innerText = score[currentPlayer];
         document.querySelector("#name-"+currentPlayer).innerText = "Winner";
-        document.getElementById("holdButton").disable = true ;
-        document.getElementById("rollButton").disable = true ;
+        document.getElementById("holdButton").classList.remove("show");
+        document.getElementById("rollButton").classList.remove("show");
+        document.getElementById("holdButton").classList.add("hide");
+        document.getElementById("rollButton").classList.add("hide");
         return;     
     }
 }
@@ -71,8 +73,10 @@ function newGame(){
     document.querySelector(".player-1-panel").classList.remove("active");
     document.querySelector(".player-0-panel").classList.add("active");
         
-    document.getElementById("holdButton").disable = false ;
-    document.getElementById("rollButton").disable = false ;
+    document.getElementById("holdButton").classList.remove("hide");
+    document.getElementById("rollButton").classList.remove("hide");
+    document.getElementById("holdButton").classList.add("show");
+    document.getElementById("rollButton").classList.add("show");
 
     document.getElementById("score-0").innerText = "0" ;
     document.getElementById("current-0").innerText = "0";

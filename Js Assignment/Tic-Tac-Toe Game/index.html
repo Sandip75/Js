@@ -2,26 +2,34 @@
     <head>
         <title>Tic-Tac-Toe Game</title>
         <link type="text/css" rel="stylesheet" href="style.css"/>
+        <script src="app.js"></script>
     </head>
-    <body>
+
+    <body onload="startGame();">
+
+        <div id="message">Message will go here</div>
+
         <table border="2px">
             <tr>
-                <td class="Square">X</td>
-                <td class="Square">X</td>
-                <td class="Square">X</td>
+                <td id="b1" class="Square" onclick="nextTurn(this)"></td>
+                <td id="b2" class="Square" onclick="nextTurn(this)"></td>
+                <td id="b3" class="Square" onclick="nextTurn(this)"></td>
             </tr>
 
             <tr>
-                <td class="Square">X</td>
-                <td class="Square">X</td>
-                <td class="Square">X</td>
+                <td id="b4" class="Square" onclick="nextTurn(this)"></td>
+                <td id="b5" class="Square" onclick="nextTurn(this)"></td>
+                <td id="b6" class="Square" onclick="nextTurn(this)"></td>
             </tr>       
        
-             <tr>
-                <td class="Square">X</td>
-                <td class="Square">X</td>
-                <td class="Square">X</td>
-            </tr>
+            <tr>
+                <td id="b7" class="Square" onclick="nextTurn(this)"></td>
+                <td id="b8" class="Square" onclick="nextTurn(this)"></td>
+                <td id="b9" class="Square" onclick="nextTurn(this)"></td>
+            </tr>       
         </table>
+
+        <br><br>
+        <button id="newGame" onclick="startGame()">New Game</button>
     </body>
 </html>

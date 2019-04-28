@@ -1,4 +1,6 @@
 function startGame(){
+
+    //document.getElementsByClassName("Square").innerText = "";   // Why It does Not work ?
     for(var i=1 ; i <= 9 ; i++){
         clearText(i);
     }
@@ -7,8 +9,7 @@ function startGame(){
     if(Math.random() < 0.5){
         document.turn = "O";
     }
-    document.winner  = null;
-    document.getElementsByClassName("Square").innerText = "";
+    document.winner  = null; 
     setMessage(document.turn + " get ready to start");
 }
 

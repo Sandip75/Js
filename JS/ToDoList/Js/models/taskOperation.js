@@ -1,0 +1,8 @@
+const taskOperation = {
+    tasks : [] , 
+
+
+    Add(){
+
+    }
+}

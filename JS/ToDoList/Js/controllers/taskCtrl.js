@@ -1,4 +1,7 @@
+window.addEventListener("load", firstTimeLoad)
 window.addEventListener("click" , bindEvents);
+
+
 
 function bindEvents(){
     document.getElementById('iAdd').addEventListener('click' , add);
@@ -18,6 +21,10 @@ function add(){
     //console.log(tasks);
 }
 
+function firstTimeLoad(){
+    document.getElementById("iUpdate").style.display = "none";
+}
+
 function clear(){
     document.getElementById("iId").value = "";
     document.getElementById("iName").value = "";
@@ -26,9 +33,11 @@ function clear(){
 }
 
 function displayTasks(tasks){
+    var ul = document.getElementById("otask");
+    ul.innerHTML="";
     for(let task of tasks){
         printTask(task);
-    }
+    }    
 }
 
 function printTask(task){
@@ -38,8 +47,10 @@ function printTask(task){
     // li.appendChild(addTaskName(task.name));
     // li.appendChild(addTaskDescription(task.description));
     // li.appendChild(addTaskEndDate(task.date));
-
+    li.appendChild(createCheckBox(task.id));
     li.appendChild(createSpan(task.id , task.name , task.description,task.date));
+    li.appendChild(createUpdateButton(task.id));
+    li.appendChild(createDeleteButton(task.id));
     ul.appendChild(li);
 }
 
@@ -47,6 +58,30 @@ function createSpan(id , name , description , endDate){
     var span = document.createElement('span');
     span.innerText = id + " " + name + " " + description + " " + endDate ;
     return span;
+}
+
+function createCheckBox(id){
+    var checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.setAttribute('checkbox-id',id);
+    return checkbox;
+}
+
+function createUpdateButton(id){
+    var button = document.createElement('button');
+    button.innerHTML='<img src="Image/update.png" width="20" height="20"></img>';
+    button.addEventListener('click',dd);
+    button.setAttribute('update-id',id);
+    return button;
+}
+
+function createDeleteButton(id){
+    var button = document.createElement('button');
+    button.innerHTML='<img src="Image/delete.png" width="20" height="20"></img>';
+    button.ima
+    button.addEventListener('click',dd);
+    button.setAttribute('delete-id',id);
+    return button;
 }
 
 // function addTaskId(id){
@@ -64,3 +99,9 @@ function createSpan(id , name , description , endDate){
 // function addTaskEndDate(endDate){
 
 // }
+
+
+function dd(){
+    document.getElementById("iUpdate").style.display = "block";
+    alert("I am here");
+}

@@ -70,7 +70,7 @@ function createCheckBox(id){
 function createUpdateButton(id){
     var button = document.createElement('button');
     button.innerHTML='<img src="Image/update.png" width="20" height="20"></img>';
-    button.addEventListener('click',dd);
+    button.addEventListener('click',updateTask);
     button.setAttribute('update-id',id);
     return button;
 }
@@ -78,8 +78,7 @@ function createUpdateButton(id){
 function createDeleteButton(id){
     var button = document.createElement('button');
     button.innerHTML='<img src="Image/delete.png" width="20" height="20"></img>';
-    button.ima
-    button.addEventListener('click',dd);
+    button.addEventListener('click',deleteTask(id));
     button.setAttribute('delete-id',id);
     return button;
 }
@@ -101,7 +100,13 @@ function createDeleteButton(id){
 // }
 
 
-function dd(){
+function updateTask(){
     document.getElementById("iUpdate").style.display = "block";
-    alert("I am here");
+    
+}
+
+function deleteTask(id){
+    //taskOperation.DeleteById(id);
+    //var tasks = taskOperation.Read();
+    //displayTasks(tasks);    
 }
